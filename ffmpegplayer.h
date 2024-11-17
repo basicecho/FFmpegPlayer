@@ -14,7 +14,9 @@ class FFmpegPlayer : public QObject
 public:
     explicit FFmpegPlayer(QObject *parent = nullptr);
 
-signals:
+public:
+    QString m_filename;
+
     AVFormatContext *m_fmtCtx = nullptr;    // 视频上下文
     AVCodecContext *m_codecCtx = nullptr;   // 解码器上下文
 };
