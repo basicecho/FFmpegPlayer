@@ -21,14 +21,19 @@ HEADERS += \
 FORMS += \
     widget.ui
 
+DISTFILES += \
+    config/config.ini
+
 unix
 {
     INCLUDEPATH += $(HOME)/Software/ffmpeg/include
-
     QMAKE_LIBDIR += $(HOME)/Software/ffmpeg/lib
-
     LIBS += -lavcodec -lavdevice -lavfilter -lavformat -lavutil -lpostproc -lswresample -lswscale
 }
 
-DISTFILES += \
-    config/config.ini
+win32
+{
+    INCLUDEPATH += D:\ffmpeg\ffmpeg-master-latest-win64-gpl-shared\include
+    QMAKE_LIBDIR += D:\ffmpeg\ffmpeg-master-latest-win64-gpl-shared\lib
+    LIBS += -lavcodec -lavdevice -lavfilter -lavformat -lavutil -lpostproc -lswresample -lswscale
+}
